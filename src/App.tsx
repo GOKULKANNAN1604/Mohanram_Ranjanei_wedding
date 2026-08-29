@@ -134,7 +134,7 @@ export function App() {
 
               {/* Diya Sticker Right */}
               <div className="w-10 h-10 rounded-full overflow-hidden flame-glow border border-amber-400/50 p-0.5 bg-amber-500/10">
-                <img src="/diya_sticker.jpg" alt="Traditional Diya" className="w-full h-full object-cover rounded-full" />
+                <img src={`${BASE}diya_sticker.jpg`} alt="Traditional Diya" className="w-full h-full object-cover rounded-full" />
               </div>
             </div>
 
