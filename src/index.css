@@ -79,7 +79,6 @@
   animation: flameGlow 2s infinite ease-in-out;
 }
 
-/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -90,3 +89,50 @@
   background: #ca8a04;
   border-radius: 4px;
 }
+
+/* =============================================
+   MOBILE PERFORMANCE OPTIMIZATIONS
+   ============================================= */
+
+/* On mobile: replace expensive backdrop-blur with solid bg */
+@media (max-width: 767px) {
+  [class*="backdrop-blur"] {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background-color: rgba(26, 8, 40, 0.92) !important;
+  }
+
+  /* Reduce CSS animation count — keep only essential ones */
+  .animate-sticker-float {
+    animation-duration: 6s; /* slower = less CPU */
+  }
+
+  .gold-glow {
+    animation: none; /* disable box-shadow animation on mobile */
+    box-shadow: 0 0 20px rgba(234, 179, 8, 0.2), inset 0 0 10px rgba(234, 179, 8, 0.1);
+  }
+
+  /* Disable SVG SMIL animations on low-power mobile */
+  @media (prefers-reduced-motion: reduce) {
+    svg animate,
+    svg animateTransform,
+    svg animateMotion {
+      animation-play-state: paused !important;
+    }
+  }
+}
+
+/* Optimize image rendering */
+img {
+  image-rendering: auto;
+  content-visibility: auto;
+}
+
+/* Promote animated elements to GPU layer */
+.flame-glow,
+.animate-sticker-float,
+.gold-glow {
+  will-change: transform, box-shadow;
+  transform: translateZ(0);
+}
+
