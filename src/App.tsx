@@ -64,20 +64,30 @@ export function App() {
   };
 
   const triggerFlowerShower = () => {
+    // Flowers fall slowly from the top like a real flower shower
     confetti({
-      particleCount: 80,
-      spread: 90,
-      origin: { y: 0.6 },
-      colors: ['#ef4444', '#ec4899', '#f59e0b', '#fbbf24']
+      particleCount: 100,
+      spread: 120,
+      angle: 270, // shoot downwards
+      origin: { y: -0.1, x: 0.5 }, // spawn just above the top edge
+      startVelocity: 30, // initial push downwards
+      gravity: 0.5,
+      drift: 0.2,
+      ticks: 400,
+      colors: ['#facc15', '#f59e0b', '#ffffff', '#fbbf24'] // Marigold and Jasmine colors
     });
   };
 
   const triggerHeartBlessings = () => {
+    // Love bursts upwards from the bottom
     confetti({
-      particleCount: 70,
-      spread: 70,
-      origin: { y: 0.7 },
-      colors: ['#ec4899', '#ef4444', '#ffffff']
+      particleCount: 100,
+      spread: 90,
+      origin: { y: 1 },
+      startVelocity: 60,
+      gravity: 0.9,
+      shapes: ['circle'],
+      colors: ['#ef4444', '#e11d48', '#be123c', '#fda4af'] // Deep reds and pinks
     });
   };
 
@@ -104,7 +114,7 @@ export function App() {
 
       {/* SINGLE PAGE CONTINUOUS SCROLL MOBILE INVITATION CARD */}
       {isEnvelopeOpened && (
-        <main className="w-full max-w-md min-h-screen sm:min-h-0 sm:rounded-[36px] bg-gradient-to-b from-[#250d33] via-[#1a0826] to-[#0c0312] border-0 sm:border-2 border-amber-500/40 shadow-2xl gold-glow relative overflow-hidden pb-16 animate-fade-in space-y-8">
+        <main className="w-full max-w-md min-h-screen sm:min-h-0 sm:rounded-[36px] bg-gradient-to-b from-[#250d33] via-[#1a0826] to-[#0c0312] border-0 sm:border-2 border-amber-500/40 shadow-2xl relative overflow-hidden pb-16 animate-fade-in space-y-8">
           
           {/* Ambient Gold Lighting */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-80 h-80 bg-amber-500/20 blur-[100px] rounded-full pointer-events-none" />

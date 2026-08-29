@@ -116,32 +116,27 @@ export const Envelope: React.FC<EnvelopeProps> = ({ details, guestName, onOpen }
               Invite you to share in their joy as they unite in holy matrimony on next month's auspicious day.
             </p>
 
-            {/* Interactive Wax Seal Button */}
-            <div className="pt-6 pb-2 flex flex-col items-center justify-center">
-              <button
-                onClick={handleOpenInvitation}
-                disabled={isOpening}
-                className="group relative flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-rose-700 via-red-800 to-rose-950 border-[3px] border-amber-400/80 shadow-[0_0_30px_rgba(251,191,36,0.3)] transition-all duration-500 hover:scale-110 active:scale-95 z-10"
-              >
-                {/* Wax seal inner dashed ring */}
-                <div className="absolute inset-1.5 border border-amber-300/40 rounded-full border-dashed pointer-events-none" />
-                {/* Wax seal inner solid ring */}
-                <div className="absolute inset-[10px] border border-amber-400/30 rounded-full pointer-events-none" />
+            {/* Interactive Elegant Open Button */}
+            <div className="pt-8 pb-2 flex flex-col items-center">
+              <div className="relative group cursor-pointer">
+                {/* Decorative border corners */}
+                <div className="absolute -top-1.5 -left-1.5 w-3 h-3 border-t border-l border-amber-400/60 transition-all duration-300 group-hover:-top-2.5 group-hover:-left-2.5 group-hover:border-amber-300" />
+                <div className="absolute -top-1.5 -right-1.5 w-3 h-3 border-t border-r border-amber-400/60 transition-all duration-300 group-hover:-top-2.5 group-hover:-right-2.5 group-hover:border-amber-300" />
+                <div className="absolute -bottom-1.5 -left-1.5 w-3 h-3 border-b border-l border-amber-400/60 transition-all duration-300 group-hover:-bottom-2.5 group-hover:-left-2.5 group-hover:border-amber-300" />
+                <div className="absolute -bottom-1.5 -right-1.5 w-3 h-3 border-b border-r border-amber-400/60 transition-all duration-300 group-hover:-bottom-2.5 group-hover:-right-2.5 group-hover:border-amber-300" />
                 
-                {/* Icon inside seal */}
-                <div className="relative flex flex-col items-center transform transition-transform duration-500 group-hover:rotate-6">
-                  <Heart className="w-7 h-7 text-amber-300 fill-amber-300 drop-shadow-md" />
-                  <span className="text-[7.5px] font-cinzel tracking-widest text-amber-200 mt-1.5 uppercase font-bold shadow-black drop-shadow-md">
-                    Open
-                  </span>
-                </div>
-                
-                {/* Highlight gleam on seal */}
-                <div className="absolute top-1 left-2 w-8 h-4 bg-white/20 rounded-full blur-[2px] -rotate-45 pointer-events-none" />
-              </button>
+                <button
+                  onClick={handleOpenInvitation}
+                  disabled={isOpening}
+                  className="relative inline-flex items-center justify-center gap-3 px-10 py-3 bg-[#1d0614]/90 backdrop-blur-sm border border-amber-500/30 text-amber-200 font-cinzel font-bold tracking-[0.25em] text-[11px] sm:text-xs uppercase shadow-[0_0_20px_rgba(251,191,36,0.1)] hover:shadow-[0_0_30px_rgba(251,191,36,0.2)] hover:bg-[#3b0b26] hover:text-amber-100 hover:border-amber-400/60 transition-all duration-500 active:scale-95"
+                >
+                  <span className="drop-shadow-sm pt-0.5">{isOpening ? 'Unveiling...' : 'Open Invitation'}</span>
+                  <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 animate-pulse drop-shadow-md" />
+                </button>
+              </div>
 
-              <p className="mt-6 text-[11px] text-amber-300/50 flex items-center justify-center gap-2 font-light tracking-wide animate-pulse">
-                <Volume2 className="w-3.5 h-3.5" /> Tap seal to open with music
+              <p className="mt-8 text-[9px] text-amber-400/50 flex items-center justify-center gap-1.5 font-light tracking-[0.15em] uppercase">
+                <Volume2 className="w-3 h-3" /> Tap to open with music
               </p>
             </div>
           </div>
