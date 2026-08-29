@@ -4,7 +4,7 @@ import { PetalsCanvas } from './components/PetalsCanvas';
 import { Envelope } from './components/Envelope';
 import { MusicPlayer } from './components/MusicPlayer';
 import { Countdown } from './components/Countdown';
-import { AnimatedMandapLogo } from './components/AnimatedMandapLogo';
+
 import { FloralDivider } from './components/FloralDivider';
 import { AnimatedBlessingSymbol } from './components/AnimatedBlessingSymbol';
 import { AnimatedRingIcon, AnimatedWeddingIcon, AnimatedReceptionIcon } from './components/AnimatedEventIcons';
@@ -61,12 +61,6 @@ export function App() {
   const handleOpenEnvelope = () => {
     setIsEnvelopeOpened(true);
     setAutoPlayAudio(true);
-    confetti({
-      particleCount: 120,
-      spread: 80,
-      origin: { y: 0.5 },
-      colors: ['#f59e0b', '#ef4444', '#ec4899', '#ffffff', '#fbbf24']
-    });
   };
 
   const triggerFlowerShower = () => {
@@ -118,25 +112,8 @@ export function App() {
           {/* SECTION 1: HEADER WITH STICKERS & INVITATION MESSAGE */}
           <section className="relative pt-6 px-6 text-center space-y-4">
             
-            {/* Animated Mandap Logo */}
-            <AnimatedMandapLogo />
+            {/* Animated Mandap Logo removed as requested */}
 
-            {/* Traditional Diya & Mantra Header */}
-            <div className="flex items-center justify-between px-2">
-              {/* Diya Sticker Left */}
-              <div className="w-10 h-10 rounded-full overflow-hidden flame-glow border border-amber-400/50 p-0.5 bg-amber-500/10">
-                <img src={`${BASE}diya_sticker.jpg`} alt="Traditional Diya" className="w-full h-full object-cover rounded-full" />
-              </div>
-
-              <div className="text-[10px] sm:text-[11px] font-cinzel tracking-[0.2em] text-amber-400 font-semibold uppercase">
-                || Om Sri Ganeshaya Namaha ||
-              </div>
-
-              {/* Diya Sticker Right */}
-              <div className="w-10 h-10 rounded-full overflow-hidden flame-glow border border-amber-400/50 p-0.5 bg-amber-500/10">
-                <img src={`${BASE}diya_sticker.jpg`} alt="Traditional Diya" className="w-full h-full object-cover rounded-full" />
-              </div>
-            </div>
 
             {/* Save The Date Badge */}
             <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full border border-amber-400/40 bg-amber-500/10 text-amber-300 text-[11px] font-semibold uppercase tracking-widest shadow-md">
@@ -145,14 +122,7 @@ export function App() {
               <Sparkles className="w-3 h-3 text-amber-400" />
             </div>
 
-            {/* Couple Illustration Spotlight */}
-            <div className="flex justify-center my-6">
-              <div className="relative w-48 h-64 sm:w-56 sm:h-72 rounded-[40px] overflow-hidden border-2 border-amber-400/40 shadow-[0_0_30px_rgba(251,191,36,0.15)] gold-glow transform hover:scale-[1.02] transition-transform duration-500">
-                <img src={`${BASE}couple_illustration.jpg`} alt="Mohanram and Ranjanei" className="w-full h-full object-cover" />
-                {/* Subtle vignette overlay to blend edges into the dark background */}
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_50%,_rgba(26,8,38,0.8)_100%)] pointer-events-none" />
-              </div>
-            </div>
+
 
             {/* Personalized Guest Badge */}
             {guestName && (
@@ -184,18 +154,30 @@ export function App() {
               "We are absolutely thrilled to share this wonderful news with you! As we step into a new chapter, we would be honored to have you by our side."
             </p>
 
-            {/* CUTE SOUTH INDIAN WEDDING STICKER BADGE */}
-            <div className="relative my-4 flex flex-col items-center">
-              <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-amber-400/60 p-1 glass-panel gold-glow animate-sticker-float">
-                <img
-                  src={`${BASE}couple_sticker.jpg`}
-                  alt="Cute Wedding Couple Sticker"
-                  className="w-full h-full object-cover rounded-full"
-                />
+            {/* Couple Illustration Spotlight - Circular Frame */}
+            <div className="flex justify-center my-8">
+              {/* Outer Dark & Gold Ring */}
+              <div className="p-1.5 rounded-full bg-gradient-to-br from-amber-600 via-amber-400 to-amber-700 shadow-[0_0_40px_rgba(251,191,36,0.3)] transform hover:scale-[1.03] transition-transform duration-500">
+                {/* Inner White/Cream Ring */}
+                <div className="p-1.5 rounded-full bg-[#1a0826] border-2 border-amber-900/50">
+                  {/* Image Container */}
+                  <div className="relative w-56 h-56 sm:w-64 sm:h-64 rounded-full overflow-hidden border-2 border-amber-300/60">
+                    <img 
+                      src={`${BASE}couple_illustration.jpg`} 
+                      alt="Mohanram and Ranjanei" 
+                      className="w-full h-full object-cover" 
+                      style={{ objectPosition: "center 20%" }} 
+                    />
+                    {/* Subtle inner glow to blend */}
+                    <div className="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(0,0,0,0.6)] pointer-events-none" />
+                  </div>
+                </div>
               </div>
+            </div>
 
-              {/* Floating Flower / Heart Reaction Sticker Buttons */}
-              <div className="flex items-center gap-3 mt-3">
+            {/* Interactive Reaction Buttons */}
+            <div className="relative my-4 flex flex-col items-center">
+              <div className="flex items-center gap-3">
                 <button
                   onClick={triggerFlowerShower}
                   className="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-rose-500/20 to-amber-500/20 border border-amber-400/40 text-amber-200 text-xs font-semibold hover:scale-105 transition-transform flex items-center gap-1.5 shadow-md"
