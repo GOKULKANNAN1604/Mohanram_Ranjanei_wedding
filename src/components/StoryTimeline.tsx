@@ -2,6 +2,8 @@ import React from 'react';
 import { Heart, Sparkles, Users, Church } from 'lucide-react';
 import type { WeddingDetails } from '../types';
 
+const BASE = import.meta.env.BASE_URL;
+
 interface StoryTimelineProps {
   details: WeddingDetails;
 }
@@ -56,7 +58,7 @@ export const StoryTimeline: React.FC<StoryTimelineProps> = ({ details }) => {
           <div className="glass-card rounded-3xl p-6 border border-amber-500/30 gold-glow space-y-4 hover:scale-[1.02] transition-transform">
             <div className="relative h-72 rounded-2xl overflow-hidden border-2 border-amber-500/40">
               <img
-                src={details.groomImg || '/groom.jpg'}
+                src={details.groomImg || `${BASE}groom.jpg`}
                 alt={details.groomName}
                 className="w-full h-full object-cover"
               />
@@ -87,7 +89,7 @@ export const StoryTimeline: React.FC<StoryTimelineProps> = ({ details }) => {
           <div className="glass-card rounded-3xl p-6 border border-amber-500/30 gold-glow space-y-4 hover:scale-[1.02] transition-transform">
             <div className="relative h-72 rounded-2xl overflow-hidden border-2 border-amber-500/40">
               <img
-                src={details.brideImg || '/bride.jpg'}
+                src={details.brideImg || `${BASE}bride.jpg`}
                 alt={details.brideName}
                 className="w-full h-full object-cover"
               />

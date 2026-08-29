@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Camera, X } from 'lucide-react';
 import type { WeddingDetails } from '../types';
 
+const BASE = import.meta.env.BASE_URL;
+
 interface GalleryProps {
   details: WeddingDetails;
 }
@@ -10,10 +12,10 @@ export const Gallery: React.FC<GalleryProps> = ({ details }) => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const images = [
-    { src: details.coupleImg || '/couple.jpg', caption: 'Together Under The Mandap' },
-    { src: details.groomImg || '/groom.jpg', caption: 'The Handsome Groom' },
-    { src: details.brideImg || '/bride.jpg', caption: 'The Graceful Bride' },
-    { src: details.coupleImg || '/couple.jpg', caption: 'Pre-Wedding Celebrations' },
+    { src: details.coupleImg || `${BASE}couple.jpg`, caption: 'Together Under The Mandap' },
+    { src: details.groomImg || `${BASE}groom.jpg`, caption: 'The Handsome Groom' },
+    { src: details.brideImg || `${BASE}bride.jpg`, caption: 'The Graceful Bride' },
+    { src: details.coupleImg || `${BASE}couple.jpg`, caption: 'Pre-Wedding Celebrations' },
   ];
 
   return (

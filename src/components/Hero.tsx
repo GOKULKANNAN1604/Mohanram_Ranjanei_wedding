@@ -4,6 +4,8 @@ import { Calendar, Sparkles, Heart } from 'lucide-react';
 import type { WeddingDetails } from '../types';
 import { Countdown } from './Countdown';
 
+const BASE = import.meta.env.BASE_URL;
+
 interface HeroProps {
   details: WeddingDetails;
   guestName: string;
@@ -53,7 +55,7 @@ export const Hero: React.FC<HeroProps> = ({ details, guestName, onOpenRsvp }) =>
         <div className="relative max-w-2xl mx-auto my-6">
           <div className="relative rounded-3xl overflow-hidden border-4 border-amber-500/40 p-2 glass-panel gold-glow">
             <img
-              src={details.coupleImg || '/couple.jpg'}
+              src={details.coupleImg || `${BASE}couple.jpg`}
               alt={`${details.groomName} & ${details.brideName}`}
               className="w-full h-[320px] sm:h-[450px] object-cover rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-700"
             />

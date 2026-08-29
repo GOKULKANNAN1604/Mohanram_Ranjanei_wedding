@@ -11,16 +11,18 @@ import { AnimatedRingIcon, AnimatedWeddingIcon, AnimatedReceptionIcon } from './
 import confetti from 'canvas-confetti';
 import { MapPin, Clock, Heart, Sparkles, ExternalLink } from 'lucide-react';
 
+const BASE = import.meta.env.BASE_URL;
+
 const MOHANRAM_RANJANEI_DETAILS: WeddingDetails = {
   groomName: 'Mohanram',
   groomTitle: 'Groom',
   groomFamily: 'Mr. & Mrs. Families',
-  groomImg: '/groom.jpg',
+  groomImg: `${BASE}groom.jpg`,
   brideName: 'Ranjanei',
   brideTitle: 'Bride',
   brideFamily: 'Mr. & Mrs. Families',
-  brideImg: '/bride.jpg',
-  coupleImg: '/couple.jpg',
+  brideImg: `${BASE}bride.jpg`,
+  coupleImg: `${BASE}couple.jpg`,
   weddingDate: '2026-09-13T08:45:00', // Sep 13, 2026 at 8:45 AM
   
   engagementDate: 'Sep 12, 6:00 PM onwards',
@@ -123,7 +125,7 @@ export function App() {
             <div className="flex items-center justify-between px-2">
               {/* Diya Sticker Left */}
               <div className="w-10 h-10 rounded-full overflow-hidden flame-glow border border-amber-400/50 p-0.5 bg-amber-500/10">
-                <img src="/diya_sticker.jpg" alt="Traditional Diya" className="w-full h-full object-cover rounded-full" />
+                <img src={`${BASE}diya_sticker.jpg`} alt="Traditional Diya" className="w-full h-full object-cover rounded-full" />
               </div>
 
               <div className="text-[10px] sm:text-[11px] font-cinzel tracking-[0.2em] text-amber-400 font-semibold uppercase">
@@ -177,7 +179,7 @@ export function App() {
             <div className="relative my-4 flex flex-col items-center">
               <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-amber-400/60 p-1 glass-panel gold-glow animate-sticker-float">
                 <img
-                  src="/couple_sticker.jpg"
+                  src={`${BASE}couple_sticker.jpg`}
                   alt="Cute Wedding Couple Sticker"
                   className="w-full h-full object-cover rounded-full"
                 />
