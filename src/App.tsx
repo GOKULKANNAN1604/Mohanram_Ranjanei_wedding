@@ -9,7 +9,7 @@ import { FloralDivider } from './components/FloralDivider';
 import { AnimatedBlessingSymbol } from './components/AnimatedBlessingSymbol';
 import { AnimatedRingIcon, AnimatedWeddingIcon, AnimatedReceptionIcon } from './components/AnimatedEventIcons';
 import confetti from 'canvas-confetti';
-import { MapPin, Clock, Heart, Sparkles, ExternalLink } from 'lucide-react';
+import { MapPin, Clock, Heart, Sparkles } from 'lucide-react';
 
 const BASE = import.meta.env.BASE_URL;
 
@@ -205,7 +205,7 @@ export function App() {
           </section>
 
           {/* SECTION 2: REAL-TIME COUNTDOWN TIMER */}
-          <section className="px-6 text-center space-y-2">
+          <section className="px-6 text-center space-y-3">
             <p className="text-[10px] text-amber-400 font-cinzel tracking-widest uppercase">
               Countdown To Auspicious Muhurtham
             </p>
@@ -213,7 +213,7 @@ export function App() {
           </section>
 
           {/* Floral Divider — amber between countdown and events */}
-          <FloralDivider color="amber" />
+          <div className="py-2"><FloralDivider color="amber" /></div>
 
           {/* SECTION 3: EVENT DETAILS & MAP — NEW DESIGN */}
           <section className="px-4 space-y-0">
@@ -234,36 +234,35 @@ export function App() {
             </div>
 
             {/* Timeline Container */}
-            <div className="relative">
+            <div className="relative px-2">
               {/* Vertical connector line */}
-              <div className="absolute left-[27px] top-8 bottom-8 w-px bg-gradient-to-b from-amber-500/60 via-amber-400/30 to-emerald-500/40 z-0" />
+              <div className="absolute left-[31px] top-6 bottom-6 w-px bg-amber-500/20 z-0" />
 
               {/* --- EVENT 1: ENGAGEMENT --- */}
-              <div className="relative z-10 mb-5">
-                <div className="flex gap-3 items-start">
+              <div className="relative z-10 mb-6">
+                <div className="flex gap-4 items-start">
                   {/* Timeline Node — Engagement */}
-                  <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-400 to-yellow-600 flex flex-col items-center justify-center shadow-lg shadow-amber-500/30 border-2 border-amber-300/50">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#1a0828] flex flex-col items-center justify-center shadow-md border border-amber-500/30 mt-1">
                     <AnimatedRingIcon />
-                    <span className="text-[8px] font-bold text-amber-900 uppercase tracking-wide mt-0.5">01</span>
                   </div>
 
                   {/* Card Body */}
-                  <div className="flex-1 rounded-2xl overflow-hidden border border-amber-500/25 bg-gradient-to-br from-[#2a1040]/80 to-[#1a0828]/90 backdrop-blur-md shadow-xl">
+                  <div className="flex-1 rounded-2xl overflow-hidden border border-amber-500/20 bg-white/5 backdrop-blur-sm shadow-sm">
                     {/* Card Header Strip */}
-                    <div className="px-4 pt-3 pb-1.5 border-b border-amber-500/15 flex items-center justify-between">
-                      <span className="text-[10px] font-black tracking-[0.2em] text-amber-400 uppercase">Engagement</span>
-                      <div className="flex items-center gap-1 text-amber-300/60 text-[9px] font-medium">
+                    <div className="px-4 pt-3 pb-2 border-b border-white/5 flex items-center justify-between">
+                      <span className="text-[10px] font-bold tracking-[0.1em] text-amber-200 uppercase">Engagement</span>
+                      <div className="flex items-center gap-1 text-amber-200/60 text-[9px]">
                         <Clock className="w-3 h-3" />
                         <span>Sep 12</span>
                       </div>
                     </div>
                     {/* Card Content */}
-                    <div className="px-4 pt-2.5 pb-3 space-y-2">
+                    <div className="px-4 pt-2.5 pb-3 space-y-1.5">
                       <div className="flex items-baseline gap-2">
                         <span className="text-base font-serif-royal font-bold text-amber-100">6:00 PM</span>
                         <span className="text-[10px] text-amber-300/70 font-medium">onwards</span>
                       </div>
-                      <div className="flex items-start gap-1.5">
+                      <div className="flex items-start gap-1.5 pb-1">
                         <MapPin className="w-3 h-3 text-amber-400 mt-0.5 flex-shrink-0" />
                         <span className="text-[11px] text-amber-100/80 font-medium leading-tight">Pushpam Mahal, Trichy</span>
                       </div>
@@ -272,67 +271,58 @@ export function App() {
                         href="https://maps.app.goo.gl/XT2YY8Q51STpZKXSA"
                         target="_blank"
                         rel="noreferrer"
-                        className="mt-1 w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-amber-500/10 border border-amber-400/30 group hover:bg-amber-500/20 transition-all duration-300"
+                        className="mt-2 w-full flex items-center justify-center gap-2 px-3.5 py-2 rounded-xl bg-amber-500/10 border border-amber-400/20 hover:bg-amber-500/20 transition-colors duration-300"
                       >
-                        <div className="flex items-center gap-2">
-                          <div className="w-5 h-5 rounded-full bg-amber-400/20 flex items-center justify-center">
-                            <div className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-                          </div>
-                          <span className="text-[11px] font-bold text-amber-300">Open in Google Maps</span>
-                        </div>
-                        <ExternalLink className="w-3.5 h-3.5 text-amber-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                        <MapPin className="w-3 h-3 text-amber-300" />
+                        <span className="text-[11px] font-medium text-amber-200">View Map</span>
                       </a>
                     </div>
+                  <div>
+                    <h3 className="text-sm font-bold text-amber-200">Engagement</h3>
+                    <p className="text-[11px] text-amber-300/70">Sep 12, 6:00 PM</p>
                   </div>
                 </div>
+                <p className="mt-3 text-[11px] text-amber-100/80">Pushpam Mahal, Trichy</p>
+                <a href="https://maps.app.goo.gl/XT2YY8Q51STpZKXSA" target="_blank" rel="noreferrer" className="mt-3 block text-center text-[10px] uppercase tracking-widest text-amber-400 border border-amber-400/30 py-2 rounded-lg hover:bg-amber-400/10">
+                  Open Map
+                </a>
               </div>
 
-              {/* --- EVENT 2: WEDDING MUHURTHAM (FEATURED) --- */}
-              <div className="relative z-10 mb-5">
-                <div className="flex gap-3 items-start">
-                  {/* Timeline Node — Wedding */}
-                  <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-400 via-pink-500 to-amber-500 flex flex-col items-center justify-center shadow-lg shadow-rose-500/40 border-2 border-rose-300/60 gold-glow">
+              {/* --- EVENT 2: WEDDING MUHURTHAM --- */}
+              <div className="rounded-2xl border border-amber-400/40 bg-[#1a0828]/50 p-4">
+                <div className="flex gap-4 items-center">
+                  <div className="w-10 h-10 rounded-full bg-[#250d33] flex items-center justify-center border border-amber-400/50">
                     <AnimatedWeddingIcon />
-                    <span className="text-[8px] font-bold text-white uppercase tracking-wide mt-0.5">02</span>
                   </div>
-
-                  {/* Card Body — FEATURED */}
-                  <div className="flex-1 rounded-2xl overflow-hidden border-2 border-amber-400/50 bg-gradient-to-br from-[#3a0d2a]/90 via-[#280b22]/90 to-[#1a0618]/95 backdrop-blur-md shadow-2xl shadow-amber-500/20 gold-glow">
-                    {/* Card Header Strip — gradient accent */}
-                    <div className="px-4 pt-3 pb-2 bg-gradient-to-r from-rose-500/20 via-amber-500/10 to-transparent border-b border-amber-400/20 flex items-center justify-between">
+                    <div className="px-4 pt-3 pb-2 border-b border-white/5 flex items-center justify-between">
                       <div className="flex items-center gap-1.5">
-                        <span className="text-[10px] font-black tracking-[0.2em] text-rose-300 uppercase">Wedding</span>
+                        <span className="text-[10px] font-bold tracking-[0.1em] text-amber-200 uppercase">Wedding</span>
                         <span className="text-[8px] px-1.5 py-0.5 rounded-full bg-amber-400/20 text-amber-300 font-bold uppercase">Muhurtham</span>
                       </div>
-                      <div className="flex items-center gap-1 text-amber-300/70 text-[9px] font-medium">
+                      <div className="flex items-center gap-1 text-amber-200/60 text-[9px]">
                         <Clock className="w-3 h-3" />
                         <span>Sep 13</span>
                       </div>
                     </div>
                     {/* Card Content */}
-                    <div className="px-4 pt-2.5 pb-3 space-y-2">
+                    <div className="px-4 pt-2.5 pb-3 space-y-1.5">
                       <div className="flex items-baseline gap-2">
                         <span className="text-base font-serif-royal font-bold text-amber-100">8:45 AM</span>
                         <span className="text-[10px] text-amber-300/70 font-medium">to 10:15 AM</span>
                       </div>
-                      <div className="flex items-start gap-1.5">
-                        <MapPin className="w-3 h-3 text-rose-400 mt-0.5 flex-shrink-0" />
+                      <div className="flex items-start gap-1.5 pb-1">
+                        <MapPin className="w-3 h-3 text-amber-400 mt-0.5 flex-shrink-0" />
                         <span className="text-[11px] text-amber-100/80 font-medium leading-tight">Pushpam Mahal, Trichy</span>
                       </div>
-                      {/* Map Button — PREMIUM GOLD CTA */}
+                      {/* Map Button */}
                       <a
                         href="https://maps.app.goo.gl/XT2YY8Q51STpZKXSA"
                         target="_blank"
                         rel="noreferrer"
-                        className="mt-1 w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 shadow-lg shadow-amber-500/30 group hover:from-amber-400 hover:to-yellow-400 transition-all duration-300"
+                        className="mt-2 w-full flex items-center justify-center gap-2 px-3.5 py-2 rounded-xl bg-amber-500/10 border border-amber-400/20 hover:bg-amber-500/20 transition-colors duration-300"
                       >
-                        <div className="flex items-center gap-2">
-                          <div className="w-5 h-5 rounded-full bg-amber-800/30 flex items-center justify-center">
-                            <MapPin className="w-3 h-3 text-amber-950" />
-                          </div>
-                          <span className="text-[11px] font-black text-amber-950">Open in Google Maps</span>
-                        </div>
-                        <ExternalLink className="w-3.5 h-3.5 text-amber-900 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                        <MapPin className="w-3 h-3 text-amber-300" />
+                        <span className="text-[11px] font-medium text-amber-200">View Map</span>
                       </a>
                     </div>
                   </div>
@@ -341,31 +331,30 @@ export function App() {
 
               {/* --- EVENT 3: RECEPTION --- */}
               <div className="relative z-10">
-                <div className="flex gap-3 items-start">
+                <div className="flex gap-4 items-start">
                   {/* Timeline Node — Reception */}
-                  <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-700 flex flex-col items-center justify-center shadow-lg shadow-emerald-500/30 border-2 border-emerald-300/40">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#1a0828] flex flex-col items-center justify-center shadow-md border border-amber-500/30 mt-1">
                     <AnimatedReceptionIcon />
-                    <span className="text-[8px] font-bold text-emerald-100 uppercase tracking-wide mt-0.5">03</span>
                   </div>
 
                   {/* Card Body */}
-                  <div className="flex-1 rounded-2xl overflow-hidden border border-emerald-500/25 bg-gradient-to-br from-[#0d2a1a]/80 to-[#081a10]/90 backdrop-blur-md shadow-xl">
+                  <div className="flex-1 rounded-2xl overflow-hidden border border-amber-500/20 bg-white/5 backdrop-blur-sm shadow-sm">
                     {/* Card Header Strip */}
-                    <div className="px-4 pt-3 pb-1.5 border-b border-emerald-500/15 flex items-center justify-between">
-                      <span className="text-[10px] font-black tracking-[0.2em] text-emerald-400 uppercase">Reception</span>
-                      <div className="flex items-center gap-1 text-emerald-300/60 text-[9px] font-medium">
+                    <div className="px-4 pt-3 pb-2 border-b border-white/5 flex items-center justify-between">
+                      <span className="text-[10px] font-bold tracking-[0.1em] text-amber-200 uppercase">Reception</span>
+                      <div className="flex items-center gap-1 text-amber-200/60 text-[9px]">
                         <Clock className="w-3 h-3" />
                         <span>Sep 20</span>
                       </div>
                     </div>
                     {/* Card Content */}
-                    <div className="px-4 pt-2.5 pb-3 space-y-2">
+                    <div className="px-4 pt-2.5 pb-3 space-y-1.5">
                       <div className="flex items-baseline gap-2">
-                        <span className="text-base font-serif-royal font-bold text-emerald-100">6:30 PM</span>
-                        <span className="text-[10px] text-emerald-300/70 font-medium">to 9:30 PM</span>
+                        <span className="text-base font-serif-royal font-bold text-amber-100">6:30 PM</span>
+                        <span className="text-[10px] text-amber-300/70 font-medium">to 9:30 PM</span>
                       </div>
-                      <div className="flex items-start gap-1.5">
-                        <MapPin className="w-3 h-3 text-emerald-400 mt-0.5 flex-shrink-0" />
+                      <div className="flex items-start gap-1.5 pb-1">
+                        <MapPin className="w-3 h-3 text-amber-400 mt-0.5 flex-shrink-0" />
                         <span className="text-[11px] text-amber-100/80 font-medium leading-tight">Anjappar, Porur, Chennai</span>
                       </div>
                       {/* Map Button */}
@@ -373,15 +362,10 @@ export function App() {
                         href="https://maps.app.goo.gl/qqkpDewn6E7VKfag8"
                         target="_blank"
                         rel="noreferrer"
-                        className="mt-1 w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-emerald-500/10 border border-emerald-400/30 group hover:bg-emerald-500/20 transition-all duration-300"
+                        className="mt-2 w-full flex items-center justify-center gap-2 px-3.5 py-2 rounded-xl bg-amber-500/10 border border-amber-400/20 hover:bg-amber-500/20 transition-colors duration-300"
                       >
-                        <div className="flex items-center gap-2">
-                          <div className="w-5 h-5 rounded-full bg-emerald-400/20 flex items-center justify-center">
-                            <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                          </div>
-                          <span className="text-[11px] font-bold text-emerald-300">Open in Google Maps</span>
-                        </div>
-                        <ExternalLink className="w-3.5 h-3.5 text-emerald-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                        <MapPin className="w-3 h-3 text-amber-300" />
+                        <span className="text-[11px] font-medium text-amber-200">View Map</span>
                       </a>
                     </div>
                   </div>
@@ -392,7 +376,7 @@ export function App() {
           </section>
 
           {/* Floral Divider — rose before footer */}
-          <FloralDivider color="rose" />
+          <div className="py-2"><FloralDivider color="rose" /></div>
 
           {/* SECTION 4: FOOTER PERSONAL INVITATION NOTE */}
           <footer className="text-center py-4 px-6 space-y-2 border-t border-amber-500/20 pt-4">

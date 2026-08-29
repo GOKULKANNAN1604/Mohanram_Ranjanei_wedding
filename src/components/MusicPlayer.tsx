@@ -40,7 +40,7 @@ export const MusicPlayer: React.FC<MusicPlayerProps> = ({ audioUrl, autoPlayTrig
   };
 
   return (
-    <div className="fixed bottom-5 left-5 z-40 flex items-center gap-2">
+    <div className="fixed bottom-5 right-5 z-40 flex items-center gap-2 scale-90 origin-bottom-right">
       <audio
         ref={audioRef}
         src={audioUrl || 'https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-wedding-flute-112199.mp3'}
@@ -51,13 +51,13 @@ export const MusicPlayer: React.FC<MusicPlayerProps> = ({ audioUrl, autoPlayTrig
       <div className="glass-panel p-2 rounded-full shadow-xl flex items-center gap-2 border border-amber-500/30">
         <button
           onClick={togglePlay}
-          className="w-10 h-10 rounded-full bg-amber-500/20 hover:bg-amber-500/30 border border-amber-400/40 flex items-center justify-center text-amber-300 transition-all hover:scale-105 active:scale-95"
+          className="w-8 h-8 rounded-full bg-amber-500/20 hover:bg-amber-500/30 border border-amber-400/40 flex items-center justify-center text-amber-300 transition-all hover:scale-105 active:scale-95"
           title={isPlaying ? 'Pause Music' : 'Play Music'}
         >
           {isPlaying ? (
-            <Pause className="w-5 h-5 fill-amber-300" />
+            <Pause className="w-4 h-4 fill-amber-300" />
           ) : (
-            <Play className="w-5 h-5 fill-amber-300 ml-0.5" />
+            <Play className="w-4 h-4 fill-amber-300 ml-0.5" />
           )}
         </button>
 
@@ -72,10 +72,10 @@ export const MusicPlayer: React.FC<MusicPlayerProps> = ({ audioUrl, autoPlayTrig
 
         <button
           onClick={toggleMute}
-          className="w-8 h-8 rounded-full bg-amber-500/10 hover:bg-amber-500/20 flex items-center justify-center text-amber-200/80 hover:text-amber-200 transition-colors"
+          className="w-6 h-6 rounded-full bg-amber-500/10 hover:bg-amber-500/20 flex items-center justify-center text-amber-200/80 hover:text-amber-200 transition-colors"
           title={isMuted ? 'Unmute' : 'Mute'}
         >
-          {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+          {isMuted ? <VolumeX className="w-3 h-3" /> : <Volume2 className="w-3 h-3" />}
         </button>
 
         <span className="hidden md:inline text-xs font-semibold text-amber-300/80 pr-3">
