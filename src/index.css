@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #0b040f;
+    color: #fef3c7;
+    overflow-x: hidden;
+  }
+}
+
+.font-script {
+  font-family: 'Great Vibes', cursive;
+}
+
+.font-brush {
+  font-family: 'Alex Brush', cursive;
+}
+
+.font-serif-royal {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+/* Gold Foil & Luxury Card Styling */
+.gold-foil-border {
+  border: 2px solid transparent;
+  background: 
+    linear-gradient(#1c0926, #14061c) padding-box,
+    linear-gradient(135deg, #fef08a, #ca8a04, #fef08a, #854d0e, #fef08a) border-box;
+}
+
+.gold-card-shadow {
+  box-shadow: 0 10px 40px -10px rgba(202, 138, 4, 0.35), inset 0 0 20px rgba(202, 138, 4, 0.15);
+}
+
+.gold-glow {
+  animation: goldGlow 4s infinite ease-in-out;
+}
+
+@keyframes goldGlow {
+  0%, 100% {
+    box-shadow: 0 0 25px rgba(234, 179, 8, 0.25), inset 0 0 15px rgba(234, 179, 8, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(234, 179, 8, 0.45), inset 0 0 25px rgba(234, 179, 8, 0.3);
+  }
+}
+
+/* Animated Floating Sticker Animation */
+@keyframes stickerFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(3deg);
+  }
+}
+
+.animate-sticker-float {
+  animation: stickerFloat 4s infinite ease-in-out;
+}
+
+@keyframes flameGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.8));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 16px rgba(239, 68, 68, 0.9));
+    transform: scale(1.05);
+  }
+}
+
+.flame-glow {
+  animation: flameGlow 2s infinite ease-in-out;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0b040f;
+}
+::-webkit-scrollbar-thumb {
+  background: #ca8a04;
+  border-radius: 4px;
+}
