@@ -145,6 +145,15 @@ export function App() {
               <Sparkles className="w-3 h-3 text-amber-400" />
             </div>
 
+            {/* Couple Illustration Spotlight */}
+            <div className="flex justify-center my-6">
+              <div className="relative w-48 h-64 sm:w-56 sm:h-72 rounded-[40px] overflow-hidden border-2 border-amber-400/40 shadow-[0_0_30px_rgba(251,191,36,0.15)] gold-glow transform hover:scale-[1.02] transition-transform duration-500">
+                <img src={`${BASE}couple_illustration.jpg`} alt="Mohanram and Ranjanei" className="w-full h-full object-cover" />
+                {/* Subtle vignette overlay to blend edges into the dark background */}
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_50%,_rgba(26,8,38,0.8)_100%)] pointer-events-none" />
+              </div>
+            </div>
+
             {/* Personalized Guest Badge */}
             {guestName && (
               <div className="p-2.5 rounded-2xl bg-amber-500/15 border border-amber-400/40 shadow-sm animate-bounce">
