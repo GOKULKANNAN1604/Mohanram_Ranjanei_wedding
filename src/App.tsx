@@ -40,13 +40,14 @@ const MOHANRAM_RANJANEI_DETAILS: WeddingDetails = {
   venueName: 'Pushpam Mahal, Trichy',
   venueAddress: 'Pushpam Mahal, Trichy & Anjappar, Porur, Chennai',
   venueMapUrl: 'https://maps.app.goo.gl/XT2YY8Q51STpZKXSA',
-  bgmAudioUrl: `${BASE}mangalyam.mp3`,
+  bgmAudioUrl: `${BASE}engagement.mp3`,
   customMessage: 'Together with our families, we are absolutely thrilled to share some wonderful news with you! As we step into a new chapter, we would be honored to have you by our side.',
 };
 
 export function App() {
   const [details] = useState<WeddingDetails>(MOHANRAM_RANJANEI_DETAILS);
   const [guestName, setGuestName] = useState<string>('');
+  const [side, setSide] = useState<'both' | 'bride' | 'groom'>('both');
   const [isEnvelopeOpened, setIsEnvelopeOpened] = useState<boolean>(false);
   const [autoPlayAudio, setAutoPlayAudio] = useState<boolean>(false);
 
@@ -55,6 +56,10 @@ export function App() {
     const guestParam = params.get('guest') || params.get('name') || '';
     if (guestParam) {
       setGuestName(guestParam);
+    }
+    const sideParam = params.get('side')?.toLowerCase();
+    if (sideParam === 'groom' || sideParam === 'bride') {
+      setSide(sideParam as 'bride' | 'groom');
     }
   }, []);
 
@@ -131,7 +136,7 @@ export function App() {
               Save The Date
               <Sparkles className="w-3 h-3 text-amber-400" />
             </div>
-
+ 
 
 
             {/* Personalized Guest Badge */}
@@ -272,7 +277,7 @@ export function App() {
               </div>
 
               {/* --- EVENT 2: WEDDING MUHURTHAM --- */}
-              <div className="relative z-10 mb-6">
+              <div className={`relative z-10 ${side !== 'groom' ? 'mb-6' : ''}`}>
                 <div className="flex gap-4 items-start">
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#1a0828] flex flex-col items-center justify-center shadow-md border border-amber-400/50 mt-1 gold-glow">
                     <AnimatedWeddingIcon />
@@ -306,37 +311,39 @@ export function App() {
                 </div>
               </div>
 
-              {/* --- EVENT 3: RECEPTION --- */}
-              <div className="relative z-10">
-                <div className="flex gap-4 items-start">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#1a0828] flex flex-col items-center justify-center shadow-md border border-amber-500/30 mt-1">
-                    <AnimatedReceptionIcon />
-                  </div>
-                  <div className="flex-1 rounded-2xl overflow-hidden border border-amber-500/20 bg-white/5 backdrop-blur-sm shadow-sm">
-                    <div className="px-4 pt-3 pb-2 border-b border-white/5 flex items-center justify-between">
-                      <span className="text-[10px] font-bold tracking-[0.1em] text-amber-200 uppercase">Reception</span>
-                      <div className="flex items-center gap-1 text-amber-200/60 text-[9px]">
-                        <Clock className="w-3 h-3" />
-                        <span>Sep 20</span>
-                      </div>
+              {/* --- EVENT 3: RECEPTION (Only for Bride side or default) --- */}
+              {side !== 'groom' && (
+                <div className="relative z-10">
+                  <div className="flex gap-4 items-start">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#1a0828] flex flex-col items-center justify-center shadow-md border border-amber-500/30 mt-1">
+                      <AnimatedReceptionIcon />
                     </div>
-                    <div className="px-4 pt-2.5 pb-3 space-y-1.5">
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-base font-serif-royal font-bold text-amber-100">6:30 PM</span>
-                        <span className="text-[10px] text-amber-300/70 font-medium">to 9:30 PM</span>
+                    <div className="flex-1 rounded-2xl overflow-hidden border border-amber-500/20 bg-white/5 backdrop-blur-sm shadow-sm">
+                      <div className="px-4 pt-3 pb-2 border-b border-white/5 flex items-center justify-between">
+                        <span className="text-[10px] font-bold tracking-[0.1em] text-amber-200 uppercase">Reception</span>
+                        <div className="flex items-center gap-1 text-amber-200/60 text-[9px]">
+                          <Clock className="w-3 h-3" />
+                          <span>Sep 20</span>
+                        </div>
                       </div>
-                      <div className="flex items-start gap-1.5 pb-1">
-                        <MapPin className="w-3 h-3 text-amber-400 mt-0.5 flex-shrink-0" />
-                        <span className="text-[11px] text-amber-100/80 font-medium leading-tight">Anjappar, Porur, Chennai</span>
+                      <div className="px-4 pt-2.5 pb-3 space-y-1.5">
+                        <div className="flex items-baseline gap-2">
+                          <span className="text-base font-serif-royal font-bold text-amber-100">6:30 PM</span>
+                          <span className="text-[10px] text-amber-300/70 font-medium">to 9:30 PM</span>
+                        </div>
+                        <div className="flex items-start gap-1.5 pb-1">
+                          <MapPin className="w-3 h-3 text-amber-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-[11px] text-amber-100/80 font-medium leading-tight">Anjappar, Porur, Chennai</span>
+                        </div>
+                        <a href="https://maps.app.goo.gl/qqkpDewn6E7VKfag8" target="_blank" rel="noreferrer" className="mt-2 w-full flex items-center justify-center gap-2 px-3.5 py-2 rounded-xl bg-amber-500/10 border border-amber-400/20 hover:bg-amber-500/20 transition-colors duration-300">
+                          <MapPin className="w-3 h-3 text-amber-300" />
+                          <span className="text-[11px] font-medium text-amber-200">View Map</span>
+                        </a>
                       </div>
-                      <a href="https://maps.app.goo.gl/qqkpDewn6E7VKfag8" target="_blank" rel="noreferrer" className="mt-2 w-full flex items-center justify-center gap-2 px-3.5 py-2 rounded-xl bg-amber-500/10 border border-amber-400/20 hover:bg-amber-500/20 transition-colors duration-300">
-                        <MapPin className="w-3 h-3 text-amber-300" />
-                        <span className="text-[11px] font-medium text-amber-200">View Map</span>
-                      </a>
                     </div>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
           </section>
 
