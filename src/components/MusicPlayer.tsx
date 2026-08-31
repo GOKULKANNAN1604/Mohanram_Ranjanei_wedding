@@ -43,7 +43,7 @@ export const MusicPlayer: React.FC<MusicPlayerProps> = ({ audioUrl, autoPlayTrig
     <div className="fixed bottom-5 right-5 z-40 flex items-center gap-2 scale-90 origin-bottom-right">
       <audio
         ref={audioRef}
-        src={audioUrl || 'https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-wedding-flute-112199.mp3'}
+        src={audioUrl || `${import.meta.env.BASE_URL}mangalyam.mp3`}
         loop
         preload="auto"
       />

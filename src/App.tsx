@@ -40,7 +40,7 @@ const MOHANRAM_RANJANEI_DETAILS: WeddingDetails = {
   venueName: 'Pushpam Mahal, Trichy',
   venueAddress: 'Pushpam Mahal, Trichy & Anjappar, Porur, Chennai',
   venueMapUrl: 'https://maps.app.goo.gl/XT2YY8Q51STpZKXSA',
-  bgmAudioUrl: 'https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-wedding-flute-112199.mp3',
+  bgmAudioUrl: `${BASE}mangalyam.mp3`,
   customMessage: 'Together with our families, we are absolutely thrilled to share some wonderful news with you! As we step into a new chapter, we would be honored to have you by our side.',
 };
 
