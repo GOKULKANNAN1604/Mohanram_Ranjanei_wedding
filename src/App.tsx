@@ -40,7 +40,7 @@ const MOHANRAM_RANJANEI_DETAILS: WeddingDetails = {
   venueName: 'Kamalavalli Nachiyar Kovil, Woraiyur, Trichy',
   venueAddress: 'Pushpam Mahal, Trichy & Kamalavalli Nachiyar Kovil, Trichy',
   venueMapUrl: 'https://maps.app.goo.gl/Eu8XeGKM5Gze7BGa9',
-  bgmAudioUrl: `${BASE}engagement.mp3`,
+  bgmAudioUrl: `${BASE}groom_song.mp3`,
   customMessage: 'Together with our families, we are absolutely thrilled to share some wonderful news with you! As we step into a new chapter, we would be honored to have you by our side.',
 };
 
@@ -96,6 +96,8 @@ export function App() {
     });
   };
 
+  const activeBgmAudioUrl = side === 'bride' ? `${BASE}bride_song.mp3` : `${BASE}groom_song.mp3`;
+
   return (
     <div className="min-h-screen bg-[#08020a] text-amber-50 relative selection:bg-amber-500 selection:text-white flex justify-center p-0 sm:p-4 antialiased">
       
@@ -113,7 +115,7 @@ export function App() {
 
       {/* Background Music Player */}
       <MusicPlayer
-        audioUrl={details.bgmAudioUrl}
+        audioUrl={activeBgmAudioUrl}
         autoPlayTriggered={autoPlayAudio}
       />
 
