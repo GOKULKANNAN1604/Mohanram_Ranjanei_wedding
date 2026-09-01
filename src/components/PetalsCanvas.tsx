@@ -17,7 +17,6 @@ export const PetalsCanvas: React.FC = () => {
     // Mobile detection — fewer particles, no shadowBlur
     const isMobile = window.innerWidth < 768;
     const particleCount = isMobile ? 18 : 45;
-    let frameCount = 0;
 
     const handleResize = () => {
       if (!canvas) return;
@@ -60,17 +59,10 @@ export const PetalsCanvas: React.FC = () => {
     }
 
     const render = () => {
-      frameCount++;
-      // On mobile: skip every other frame → ~30fps instead of 60fps
-      if (isMobile && frameCount % 2 !== 0) {
-        animationFrameId = requestAnimationFrame(render);
-        return;
-      }
-
       ctx.clearRect(0, 0, width, height);
 
       particles.forEach((p) => {
-        p.x += p.speedX + Math.sin(p.y * 0.01) * 0.4;
+        p.x += p.speedX + Math.sin(p.y * 0.01) * 0.35;
         p.y += p.speedY;
         p.rotation += p.rotationSpeed;
 

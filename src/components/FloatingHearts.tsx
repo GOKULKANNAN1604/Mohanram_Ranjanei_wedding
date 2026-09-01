@@ -132,15 +132,16 @@ export const FloatingHearts = forwardRef<FloatingHeartsHandle>((_, ref) => {
     }
 
     setHearts((prev) => [...prev, ...newHearts]);
+
+    // Batch clear after animations complete (prevents per-particle React re-renders)
+    setTimeout(() => {
+      setHearts([]);
+    }, 4500);
   }, []);
 
   useImperativeHandle(ref, () => ({
     spawnHearts,
   }));
-
-  const removeHeart = (id: number) => {
-    setHearts((prev) => prev.filter((h) => h.id !== id));
-  };
 
   return (
     <div className="fixed inset-0 pointer-events-none z-50 overflow-hidden">
@@ -242,7 +243,6 @@ export const FloatingHearts = forwardRef<FloatingHeartsHandle>((_, ref) => {
         return (
           <div
             key={heart.id}
-            onAnimationEnd={() => removeHeart(heart.id)}
             className={`absolute ${animationClass}`}
             style={styleObj}
           >
