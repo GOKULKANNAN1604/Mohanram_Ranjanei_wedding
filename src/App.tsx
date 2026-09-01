@@ -26,20 +26,20 @@ const MOHANRAM_RANJANEI_DETAILS: WeddingDetails = {
   weddingDate: '2026-09-13T08:45:00', // Sep 13, 2026 at 8:45 AM
   
   engagementDate: 'Sep 12, 6:00 PM onwards',
-  engagementVenue: 'Pushpam Mahal, Trichy',
-  engagementMapUrl: 'https://maps.app.goo.gl/XT2YY8Q51STpZKXSA',
+  engagementVenue: 'Kamalavalli Nachiyar Kovil, Woraiyur, Trichy',
+  engagementMapUrl: 'https://maps.app.goo.gl/Eu8XeGKM5Gze7BGa9',
 
   muhurthamDate: 'Sep 13, 8:45 AM to 10:15 AM',
-  weddingVenue: 'Pushpam Mahal, Trichy',
-  weddingMapUrl: 'https://maps.app.goo.gl/XT2YY8Q51STpZKXSA',
+  weddingVenue: 'Kamalavalli Nachiyar Kovil, Woraiyur, Trichy',
+  weddingMapUrl: 'https://maps.app.goo.gl/Eu8XeGKM5Gze7BGa9',
 
   receptionDate: 'Sep 20, 6:30 PM to 9:30 PM',
   receptionVenue: 'Anjappar, Porur, Chennai',
   receptionMapUrl: 'https://maps.app.goo.gl/qqkpDewn6E7VKfag8',
 
-  venueName: 'Pushpam Mahal, Trichy',
-  venueAddress: 'Pushpam Mahal, Trichy & Anjappar, Porur, Chennai',
-  venueMapUrl: 'https://maps.app.goo.gl/XT2YY8Q51STpZKXSA',
+  venueName: 'Kamalavalli Nachiyar Kovil, Woraiyur, Trichy',
+  venueAddress: 'Kamalavalli Nachiyar Kovil, Woraiyur, Trichy & Anjappar, Porur, Chennai',
+  venueMapUrl: 'https://maps.app.goo.gl/Eu8XeGKM5Gze7BGa9',
   bgmAudioUrl: `${BASE}engagement.mp3`,
   customMessage: 'Together with our families, we are absolutely thrilled to share some wonderful news with you! As we step into a new chapter, we would be honored to have you by our side.',
 };
@@ -265,9 +265,9 @@ export function App() {
                       </div>
                       <div className="flex items-start gap-1.5 pb-1">
                         <MapPin className="w-3 h-3 text-amber-400 mt-0.5 flex-shrink-0" />
-                        <span className="text-[11px] text-amber-100/80 font-medium leading-tight">Pushpam Mahal, Trichy</span>
+                        <span className="text-[11px] text-amber-100/80 font-medium leading-tight">{details.engagementVenue}</span>
                       </div>
-                      <a href="https://maps.app.goo.gl/XT2YY8Q51STpZKXSA" target="_blank" rel="noreferrer" className="mt-2 w-full flex items-center justify-center gap-2 px-3.5 py-2 rounded-xl bg-amber-500/10 border border-amber-400/20 hover:bg-amber-500/20 transition-colors duration-300">
+                      <a href={details.engagementMapUrl} target="_blank" rel="noreferrer" className="mt-2 w-full flex items-center justify-center gap-2 px-3.5 py-2 rounded-xl bg-amber-500/10 border border-amber-400/20 hover:bg-amber-500/20 transition-colors duration-300">
                         <MapPin className="w-3 h-3 text-amber-300" />
                         <span className="text-[11px] font-medium text-amber-200">View Map</span>
                       </a>
@@ -300,9 +300,9 @@ export function App() {
                       </div>
                       <div className="flex items-start gap-1.5 pb-1">
                         <MapPin className="w-3 h-3 text-amber-400 mt-0.5 flex-shrink-0" />
-                        <span className="text-[11px] text-amber-100/80 font-medium leading-tight">Pushpam Mahal, Trichy</span>
+                        <span className="text-[11px] text-amber-100/80 font-medium leading-tight">{details.weddingVenue}</span>
                       </div>
-                      <a href="https://maps.app.goo.gl/XT2YY8Q51STpZKXSA" target="_blank" rel="noreferrer" className="mt-2 w-full flex items-center justify-center gap-2 px-3.5 py-2 rounded-xl bg-amber-500/10 border border-amber-400/20 hover:bg-amber-500/20 transition-colors duration-300">
+                      <a href={details.weddingMapUrl} target="_blank" rel="noreferrer" className="mt-2 w-full flex items-center justify-center gap-2 px-3.5 py-2 rounded-xl bg-amber-500/10 border border-amber-400/20 hover:bg-amber-500/20 transition-colors duration-300">
                         <MapPin className="w-3 h-3 text-amber-300" />
                         <span className="text-[11px] font-medium text-amber-200">View Map</span>
                       </a>

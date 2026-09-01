@@ -32,13 +32,13 @@ Please save the dates and join us:
 
 💍 *ENGAGEMENT*
 • *Time:* ${details.engagementDate || 'Sep 12, 6:00 PM onwards'}
-• *Venue:* ${details.engagementVenue || 'Pushpam Mahal, Trichy'}
-• *Map:* ${details.engagementMapUrl || 'https://maps.app.goo.gl/XT2YY8Q51STpZKXSA'}
+• *Venue:* ${details.engagementVenue || 'Kamalavalli Nachiyar Kovil, Woraiyur, Trichy'}
+• *Map:* ${details.engagementMapUrl || 'https://maps.app.goo.gl/Eu8XeGKM5Gze7BGa9'}
 
 💒 *WEDDING*
 • *Time:* ${details.muhurthamDate || 'Sep 13, 8:45 AM to 10:15 AM'}
-• *Venue:* ${details.weddingVenue || 'Pushpam Mahal, Trichy'}
-• *Map:* ${details.weddingMapUrl || 'https://maps.app.goo.gl/XT2YY8Q51STpZKXSA'}
+• *Venue:* ${details.weddingVenue || 'Kamalavalli Nachiyar Kovil, Woraiyur, Trichy'}
+• *Map:* ${details.weddingMapUrl || 'https://maps.app.goo.gl/Eu8XeGKM5Gze7BGa9'}
 
 🎉 *RECEPTION*
 • *Time:* ${details.receptionDate || 'Sep 20, 6:30 PM to 9:30 PM'}
