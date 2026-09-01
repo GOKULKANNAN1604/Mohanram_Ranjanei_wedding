@@ -26,8 +26,8 @@ const MOHANRAM_RANJANEI_DETAILS: WeddingDetails = {
   weddingDate: '2026-09-13T08:45:00', // Sep 13, 2026 at 8:45 AM
   
   engagementDate: 'Sep 12, 6:00 PM onwards',
-  engagementVenue: 'Kamalavalli Nachiyar Kovil, Woraiyur, Trichy',
-  engagementMapUrl: 'https://maps.app.goo.gl/Eu8XeGKM5Gze7BGa9',
+  engagementVenue: 'Pushpam Mahal, Trichy',
+  engagementMapUrl: 'https://maps.app.goo.gl/XT2YY8Q51STpZKXSA',
 
   muhurthamDate: 'Sep 13, 8:45 AM to 10:15 AM',
   weddingVenue: 'Kamalavalli Nachiyar Kovil, Woraiyur, Trichy',
@@ -38,7 +38,7 @@ const MOHANRAM_RANJANEI_DETAILS: WeddingDetails = {
   receptionMapUrl: 'https://maps.app.goo.gl/qqkpDewn6E7VKfag8',
 
   venueName: 'Kamalavalli Nachiyar Kovil, Woraiyur, Trichy',
-  venueAddress: 'Kamalavalli Nachiyar Kovil, Woraiyur, Trichy & Anjappar, Porur, Chennai',
+  venueAddress: 'Pushpam Mahal, Trichy & Kamalavalli Nachiyar Kovil, Trichy',
   venueMapUrl: 'https://maps.app.goo.gl/Eu8XeGKM5Gze7BGa9',
   bgmAudioUrl: `${BASE}engagement.mp3`,
   customMessage: 'Together with our families, we are absolutely thrilled to share some wonderful news with you! As we step into a new chapter, we would be honored to have you by our side.',
@@ -277,7 +277,7 @@ export function App() {
               </div>
 
               {/* --- EVENT 2: WEDDING MUHURTHAM --- */}
-              <div className={`relative z-10 ${side !== 'groom' ? 'mb-6' : ''}`}>
+              <div className={`relative z-10 ${side !== 'bride' ? 'mb-6' : ''}`}>
                 <div className="flex gap-4 items-start">
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#1a0828] flex flex-col items-center justify-center shadow-md border border-amber-400/50 mt-1 gold-glow">
                     <AnimatedWeddingIcon />
@@ -311,8 +311,8 @@ export function App() {
                 </div>
               </div>
 
-              {/* --- EVENT 3: RECEPTION (Only for Bride side or default) --- */}
-              {side !== 'groom' && (
+              {/* --- EVENT 3: RECEPTION (For Groom side or default; hidden for Bride side) --- */}
+              {side !== 'bride' && (
                 <div className="relative z-10">
                   <div className="flex gap-4 items-start">
                     <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#1a0828] flex flex-col items-center justify-center shadow-md border border-amber-500/30 mt-1">
