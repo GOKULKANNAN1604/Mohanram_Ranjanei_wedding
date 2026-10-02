@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import type { WeddingDetails } from './types';
 import { PetalsCanvas } from './components/PetalsCanvas';
 import { Envelope } from './components/Envelope';
 import { MusicPlayer } from './components/MusicPlayer';
 import { Countdown } from './components/Countdown';
+import { FloatingHearts, type FloatingHeartsHandle } from './components/FloatingHearts';
 
 import { FloralDivider } from './components/FloralDivider';
 import { AnimatedBlessingSymbol } from './components/AnimatedBlessingSymbol';
@@ -50,6 +51,7 @@ export function App() {
   const [side, setSide] = useState<'both' | 'bride' | 'groom'>('both');
   const [isEnvelopeOpened, setIsEnvelopeOpened] = useState<boolean>(false);
   const [autoPlayAudio, setAutoPlayAudio] = useState<boolean>(false);
+  const floatingHeartsRef = useRef<FloatingHeartsHandle>(null);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -83,67 +85,8 @@ export function App() {
     });
   };
 
-  const triggerHeartBlessings = () => {
-    try {
-      const heart1 = confetti.shapeFromText({ text: '❤️', scalar: 2.2 });
-      const heart2 = confetti.shapeFromText({ text: '💖', scalar: 2.2 });
-      const heart3 = confetti.shapeFromText({ text: '💕', scalar: 2.0 });
-      const heart4 = confetti.shapeFromText({ text: '✨', scalar: 1.8 });
-
-      // Center burst rising up
-      confetti({
-        particleCount: 40,
-        spread: 100,
-        origin: { x: 0.5, y: 0.75 },
-        startVelocity: 50,
-        gravity: 0.5,
-        drift: 0,
-        ticks: 350,
-        shapes: [heart1, heart2, heart3, heart4],
-        scalar: 2.2,
-      });
-
-      // Left & Right floating streams
-      confetti({
-        particleCount: 30,
-        angle: 60,
-        spread: 70,
-        origin: { x: 0.2, y: 0.8 },
-        startVelocity: 55,
-        gravity: 0.5,
-        drift: 0.2,
-        ticks: 300,
-        shapes: [heart1, heart2, heart3],
-        scalar: 2,
-      });
-
-      confetti({
-        particleCount: 30,
-        angle: 120,
-        spread: 70,
-        origin: { x: 0.8, y: 0.8 },
-        startVelocity: 55,
-        gravity: 0.5,
-        drift: -0.2,
-        ticks: 300,
-        shapes: [heart1, heart2, heart3],
-        scalar: 2,
-      });
-    } catch {
-      const heartPath = confetti.shapeFromPath({
-        path: 'M167 72c19,-38 37,-56 75,-56 42,0 76,33 76,75 0,76 -76,151 -151,227 -76,-76 -151,-151 -151,-227 0,-42 33,-75 76,-75 38,0 57,18 75,56z'
-      });
-      confetti({
-        particleCount: 80,
-        spread: 100,
-        origin: { y: 0.8 },
-        startVelocity: 50,
-        gravity: 0.6,
-        shapes: [heartPath],
-        colors: ['#ef4444', '#f43f5e', '#ec4899', '#fda4af', '#fb7185'],
-        scalar: 2
-      });
-    }
+  const triggerHeartBlessings = (e: React.MouseEvent) => {
+    floatingHeartsRef.current?.spawnHearts(e);
   };
 
   const activeBgmAudioUrl = side === 'bride' ? `${BASE}bride_song.mp3` : `${BASE}groom_song.mp3`;
@@ -151,6 +94,9 @@ export function App() {
   return (
     <div className="min-h-screen bg-[#08020a] text-amber-50 relative selection:bg-amber-500 selection:text-white flex justify-center p-0 sm:p-4 antialiased">
       
+      {/* Floating Ascending Romantic Hearts Layer */}
+      <FloatingHearts ref={floatingHeartsRef} />
+
       {/* Ambient Falling Petals Background */}
       <PetalsCanvas />
 
