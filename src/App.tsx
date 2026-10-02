@@ -84,16 +84,66 @@ export function App() {
   };
 
   const triggerHeartBlessings = () => {
-    // Love bursts upwards from the bottom
-    confetti({
-      particleCount: 100,
-      spread: 90,
-      origin: { y: 1 },
-      startVelocity: 60,
-      gravity: 0.9,
-      shapes: ['circle'],
-      colors: ['#ef4444', '#e11d48', '#be123c', '#fda4af'] // Deep reds and pinks
-    });
+    try {
+      const heart1 = confetti.shapeFromText({ text: '❤️', scalar: 2.2 });
+      const heart2 = confetti.shapeFromText({ text: '💖', scalar: 2.2 });
+      const heart3 = confetti.shapeFromText({ text: '💕', scalar: 2.0 });
+      const heart4 = confetti.shapeFromText({ text: '✨', scalar: 1.8 });
+
+      // Center burst rising up
+      confetti({
+        particleCount: 40,
+        spread: 100,
+        origin: { x: 0.5, y: 0.75 },
+        startVelocity: 50,
+        gravity: 0.5,
+        drift: 0,
+        ticks: 350,
+        shapes: [heart1, heart2, heart3, heart4],
+        scalar: 2.2,
+      });
+
+      // Left & Right floating streams
+      confetti({
+        particleCount: 30,
+        angle: 60,
+        spread: 70,
+        origin: { x: 0.2, y: 0.8 },
+        startVelocity: 55,
+        gravity: 0.5,
+        drift: 0.2,
+        ticks: 300,
+        shapes: [heart1, heart2, heart3],
+        scalar: 2,
+      });
+
+      confetti({
+        particleCount: 30,
+        angle: 120,
+        spread: 70,
+        origin: { x: 0.8, y: 0.8 },
+        startVelocity: 55,
+        gravity: 0.5,
+        drift: -0.2,
+        ticks: 300,
+        shapes: [heart1, heart2, heart3],
+        scalar: 2,
+      });
+    } catch {
+      const heartPath = confetti.shapeFromPath({
+        path: 'M167 72c19,-38 37,-56 75,-56 42,0 76,33 76,75 0,76 -76,151 -151,227 -76,-76 -151,-151 -151,-227 0,-42 33,-75 76,-75 38,0 57,18 75,56z'
+      });
+      confetti({
+        particleCount: 80,
+        spread: 100,
+        origin: { y: 0.8 },
+        startVelocity: 50,
+        gravity: 0.6,
+        shapes: [heartPath],
+        colors: ['#ef4444', '#f43f5e', '#ec4899', '#fda4af', '#fb7185'],
+        scalar: 2
+      });
+    }
   };
 
   const activeBgmAudioUrl = side === 'bride' ? `${BASE}bride_song.mp3` : `${BASE}groom_song.mp3`;
